@@ -1,0 +1,35 @@
+.sun {
+  r: 120;
+  fill: rgb(248, 254, 143);
+  stroke: black;
+  stroke-width: 10px;
+}
+
+.eye {
+  r:28;
+  fill: black;
+}
+
+.mouth {
+  stroke: black;
+  stroke-width: 2;
+  fill: red;
+}
+
+.spiral-pupil-left {
+  transform-box: fill-box;
+  transform-origin: center;
+  x:-235;
+  y:-180;
+}
+
+.spiral-pupil-right {
+  transform-box: fill-box;
+  transform-origin: center;
+  x:-125;
+  y:-180;
+}
+
+.clipPath {
+  r:25;
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Question Game</title>
+    <link rel="shortcut icon" href="images/image.ico">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="logo.css">
+    <script src="javascript/game.js"></script>
+  </head>
+  <body>
+    <script src="javascript/drawLogo.js"></script>
+    <div class="buttons">
+      <button type="button" id="startButton" onclick='window.location.replace("index.html")' >
+        Back to menu
+      </button>
+    </div>
+    <div id="setupDiv" class="setup">
+      <form action="javascript:;" onsubmit="createApiCall(this,false)" class="setup">
+        <label for="setupNum">Number of Questions:</label>
+        <input type="text" id="setupNum" value="10">
+        <label for="setupCategory">Select Category:</label>
+        <select id="setupCategory" name="setupCategory">
+          <option value="">Any Category</option>
+          <option value="9">General Knowledge</option>
+          <option value="10">Entertainment: Books</option>
+          <option value="11">Entertainment: Film</option>
+          <option value="12">Entertainment: Music</option>
+          <option value="13">Entertainment: Musicals & Theaters</option>
+          <option value="14">Entertainment: Television</option>
+          <option value="15">Entertainment: Video Games</option>
+          <option value="16">Entertainment: Board Games</option>
+          <option value="17">Science & Nature</option>
+          <option value="18">Science: Computers</option>
+          <option value="19">Science: Mathmatics</option>
+          <option value="20">Mythology</option>
+          <option value="21">Sports</option>
+          <option value="22">Geography</option>
+          <option value="23">History</option>
+          <option value="24">Politics</option>
+          <option value="25">Art</option>
+          <option value="26">Celebrities</option>
+          <option value="27">Animals</option>
+          <option value="28">Vehicles</option>
+          <option value="29">Entertainment: Comics</option>
+          <option value="30">Science: Gadgets</option>
+          <option value="31">Entertainment: Japanese Anime & Manga</option>
+          <option value="32">Entertainment: Cartoon & Animations</option>
+        </select>
+        <label for="w1Form">Select Difficulty:</label>
+        <select id="setupCategory" name="setupCategory">
+          <option value="">Any Difficulty</option>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+    <div id="gameDiv" class="radio-toolbar" style="display:none;">
+      <button type="button" id="checkButton" class="cancel" onclick="stop(false)">
+        Stop playing
+      </button>
+      <fieldset id="result" class="fs"></fieldset>
+      <fieldset id="fieldset" class="fs" style="display:none;">
+        <div id="questionsDiv">
+          <legend id="legend"> Question Number </legend>
+          <p id="ques" class="question"></p>
+          <form>
+            <input type="radio" id="ans1" name="ans" onclick="toggle()"><label for="ans1">1</label>
+            <input type="radio" id="ans2" name="ans" onclick="toggle()"><label for="ans2">2</label>
+            <input type="radio" id="ans3" name="ans" onclick="toggle()"><label for="ans3">3</label>
+            <input type="radio" id="ans4" name="ans" onclick="toggle()"><label for="ans4">4</label>
+          </form>
+          <div class="questionsDetailsDiv">
+            <p id="qdCategory" class="qdCategory">Category</p>
+            <p id="qdEmptySpace" class="qdEmptySpace"></p>
+            <p id="qdDifficulty" class="qdDifficulty">Star</p>
+          </div>
+        </div>
+        <div id="endGameDiv" class="endGameDiv" style="display:none;">
+          <details>
+            <summary id="endGameMessage" class="endGameMessage"></summary>
+            <p id="endGameStats" class="stats"></p>
+          </details>
+          <button type="button" class="endGameBacktoMenu" onclick="stop()">Back to Menu</button>
+          <button type="button" class="endGamePlayAgain" onclick="createApiCall(null,true)">Play Again with the same settings</button>
+        </div>
+      </fieldset>
+    </div>
+    <script src="javascript/listener.js"></script>
+  </body>
+</html>

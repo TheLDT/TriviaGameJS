@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1"
+     xmlns="http://www.w3.org/2000/svg">
+  <desc>Face With spinning eyes</desc>
+  <defs>
+   <clipPath id="left">
+    <circle class="clipPath" r="25" cx="70" cy="125"/>
+   </clipPath>
+   <clipPath id="right">
+    <circle class="clipPath" r="25" cx="180" cy="125"/>
+   </clipPath>
+  </defs>
+  <circle class="sun" r="120" cx="125" cy="125"
+    fill= "rgb(248, 254, 143)"
+    stroke = "black"
+    stroke-width = "10px"/>
+  <circle class="eye" r="28" cx="70" cy="125"
+    fill="black"/>
+  <circle class="eye" r="28" cx="180" cy="125"
+    fill="black"/>
+  <image id="spiral-pupil-left" class="spiral-pupil-left"
+    href="spiral.jpg" type="image/jpg" clip-path="url(#left)"
+    x="-235" y="-180"/>
+  <image id="spiral-pupil-right" class="spiral-pupil-right"
+    href="spiral.jpg" type="image/jpg" clip-path="url(#right)"
+    x="-125" y="-180" />
+  <path class="mouth" d="M115 140 A20 20 0 1 0 135 140 10 10 0 1 1 115 140z"
+    fill = "red"
+    stroke = "black"
+    stroke-width = "2px"/>
+</svg>

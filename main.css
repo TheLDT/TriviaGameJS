@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css?family=Sofia');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+
+:root {
+  --big-size: 30px;
+  --correct-color: rgb(111, 241, 116);
+  --wrong-color: rgb(240, 85, 113);
+}
+
+body {
+  background-color: rgb(238, 222, 191);
+  --main-color: #91eef9;
+  --hover-color: rgb(233, 191, 226);
+  --border-color: rgb(0, 15, 113);
+  --button-color: rgb(181, 183, 210);
+  --text-color: black;
+  color: black;
+}
+
+body.dark-theme {
+  background-color: rgb(56, 52, 59);
+  --main-color: rgb(16, 68, 55);
+  --hover-color: rgb(233, 191, 226);
+  --border-color: rgb(235, 244, 168);
+  --button-color: rgb(73, 82, 84);
+  --text-color: white;
+  color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* defaults to dark theme */
+    body {
+      background-color: rgb(56, 52, 59);
+
+      --main-color: rgb(16, 68, 55);
+      --background-color-2: black;
+      --hover-color: rgb(63, 64, 56);
+      --border-color: rgb(248, 254, 143);
+      --button-color: rgb(73, 82, 84);
+      --text-color: white;
+      color: white;
+    }
+    /* Override dark mode with light mode styles if the user decides to swap */
+    body.light-theme {
+      background-color: rgb(238, 222, 191);
+      --main-color: #91eef9;
+      --background-color-2: white;
+      --hover-color: rgb(233, 191, 226);
+      --border-color: rgb(0, 15, 113);
+      --button-color: rgb(181, 183, 210);
+      --text-color: black;
+      color: black;
+    }
+  }
+/* Title Section */
+
+.title {
+  font-family: "Sofia";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title h2 {
+  font-size: var(--big-size);
+  text-align: center;
+  margin-left: 10px;
+}
+
+.toggle-theme {
+  position: absolute;
+}
+
+.toggle-theme button{
+  border-radius: 10px;
+  font-size: 10px;
+  cursor: pointer;
+  color: var(--text-color);
+  background-color: var(--button-color);
+}
+/* Buttons section */
+
+.buttons {
+  height: 50px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 5px;
+}
+
+.buttons button {
+  border-radius: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--text-color);
+  background-color: var(--button-color);
+}
+
+.buttons button:hover {
+  box-shadow: 0px 0px 0px 2px rgb(0, 15, 113);
+}
+
+.svgToHide {
+  height: -0px;
+  margin: 0px;
+}
+
+/* Setup Section */
+
+.setup {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.setup label {
+  font-size: 20px;
+  align-self: center;
+  font-weight: bold;
+  margin: 2px;
+}
+
+.setup input[type="text"]{
+  font-size: 20px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  outline: solid 1px var(--border-color);
+}
+
+.setup select {
+  border-radius: 10px;
+  font-size: 20px;
+  margin-bottom: 5px;
+  outline: solid 2px var(--border-color);;
+}
+
+.setup input[type="submit"]{
+  font-size: var(--big-size);
+  margin: 15px;
+  outline: solid 2px var(--border-color);;
+  border-radius: 10px;
+  background-color: var(--button-color);
+  color: var(--text-color);
+}
+
+.setup input[type="submit"]:hover {
+  font-weight: bold;
+  outline: solid 2px var(--border-color);
+  background-color: var(--hover-color);
+  box-shadow: 0px 0px 0px 5px rgb(0, 15, 113);
+  cursor: pointer;
+}
+
+/* Game Section */
+
+.fs {
+  background-color: var(--main-color);
+  border: 3px solid var(--border-color);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.fs legend {
+  font-size:20px;
+}
+
+.fs .question {
+  font-style: italic;
+  font-size: 20px;
+  align-content: center;
+}
+
+.radio-toolbar input[type="radio"] {
+  display: none;
+}
+
+.radio-toolbar label {
+  display: grid;
+  justify-content: space-evenly;
+  background-color: #ddd;
+  color: black;
+  padding: 10px 10px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  max-height: 20px;
+  user-select: none;
+}
+
+.radio-toolbar label:hover {
+  font-weight: bold;
+  outline: solid 2px black;
+  background-color: var(--hover-color);
+}
+
+.radio-toolbar input[type="radio"]:checked+label {
+  font-weight: bold;
+  background-color: rgb(240, 210, 132);
+}
+
+.radio-toolbar fieldset {
+  margin-top: 20px;
+}
+
+.questionsDetailsDiv {
+  display: grid;
+  flex-direction: row;
+  grid-template-columns: [qdCategory] 20% [qdEmptySpace] 20% [qdDifficulty] auto;
+}
+
+.qdDifficulty {
+  background-color: var(--main-color);
+  text-align: right;
+}
+
+.qdCategory {
+  background-color: var(--main-color);
+  text-align: left;
+}
+
+.endGameDiv button {
+  border-radius: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  outline: solid 2px black;
+  padding: 7px;
+}
+
+.endGameDiv button:hover {
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  box-shadow: 0px 0px 0px 4px rgb(0, 15, 113);
+}
+
+.endGameDiv .endGameAnswer {
+  font-family: monospace;
+  text-align: left;
+  padding: 5px 15px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  width: 95%;
+  white-space: pre-line;
+  outline: black solid 2px;
+  /* user-select: none; */
+}
+
+.endGameDiv ::marker {
+  font-size: 20px;
+  font-family: monospace;
+}
+
+.endGameMessage {
+  font-size: var(--big-size);
+}
+
+.endGameMessage:hover {
+  font-size: var(--big-size);
+  cursor: pointer;
+}
+
+.endGameBacktoMenu {
+  background-color: var(--wrong-color);
+}
+
+.endGamePlayAgain {
+  background-color: var(--correct-color);
+}
+
+.correct-answer {
+  background-color: var(--correct-color) !important;
+  font-weight: bold;
+  color: black;
+}
+
+.wrong-answer {
+  background-color: var(--wrong-color) !important;
+  font-weight: bold;
+  color: black;
+}
+
+.default-answer {
+  background-color: var(--main-color);
+  font-weight: bold;
+  color: black;
+}
+
+/* Create Question Section */
+
+.createForm {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10%;
+  margin-left:10%;
+}
+
+.createForm label{
+  font-size: 20px;
+  align-self: center;
+  font-weight: bold;
+  margin: 5px;
+
+}
+
+.createForm input[type="text"]{
+  font-size: 20px;
+  margin-bottom: 5px;
+  outline: solid 2px var(--border-color);
+  background-color: var(--background-color-2);
+  color: var(--text-color);
+}
+
+.createForm input[type="submit"]{
+  font-size: var(--big-size);
+  margin: 15px;
+  outline: solid 2px var(--border-color);
+  border-radius: 10px;
+
+}
+
+.createForm input[type="submit"]:hover {
+  font-weight: bold;
+  outline: solid 2px var(--border-color);
+  background-color: var(--hover-color);
+  box-shadow: 0px 0px 0px 5px rgb(0, 15, 113);
+  cursor: pointer;
+}
+
+label.seperator {
+  font-size: var(--big-size);
+  font-weight: bold;
+}
+
+.empty {
+  outline: solid 3px red !important;
+}
+
+.createResult {
+  min-height: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  outline: solid 2px var(--border-color);
+  cursor: copy;
+  color: var(--text-color);
+  background-color: var(--background-color-2);
+}
+
+.cancel {
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 10px;
+  background: var(--wrong-color);
+  display: flex;
+  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cancel:hover {
+  border-radius: 10px;
+  outline: solid 2px var(--border-color);
+  background-color: var(--correct-color);
+  box-shadow: 0px 0px 0px 1px rgb(0, 15, 113);
+  cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: var(--main-color);
+  outline: solid 2px var(--border-color);
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: relative;
+  z-index: 1;
+  left: 85%;
+  bottom: 100%;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}

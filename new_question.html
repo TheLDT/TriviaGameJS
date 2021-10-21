@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Question Game</title>
+    <link rel="shortcut icon" href="images/image.ico">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="logo.css">
+    <script src="javascript/new_question.js"></script>
+  </head>
+  <body>
+    <script src="javascript/drawLogo.js"></script>
+    <div class="buttons">
+      <button type="button" id="startButton" onclick='window.location.replace("index.html")' >
+        Back to menu
+      </button>
+    </div>
+    <div id="createDiv" class="create-form">
+      <form id="createForm" action="javascript:;" onsubmit="createForm(this)" class="createForm">
+        <label for="qForm">Question</label>
+        <input type="text" id="qForm">
+        <label for="cForm">Correct answer</label>
+        <input type="text" id="cForm">
+        <label for="w1Form">Wrong answer 1</label>
+        <input type="text" id="w1Form">
+        <label for="w2Form">Wrong answer 2</label>
+        <input type="text" id="w2Form">
+        <label for="w3Form">Wrong answer 3</label>
+        <input type="text" id="w3Form">
+        <label for="catForm">Category</label>
+        <input type="text" id="catForm" placeholder="Other">
+        <label for="difForm">Difficulty</label>
+        <input type="text" id="difForm" placeholder="Unspecified">
+        <label class="seperator">OR</label>
+        <label for="qAllForm">All together (Question/Correct answer/Wrong answer/Wrong answer/Wrong answer/Category/Difficulty)</label>
+        <input type="text" id="qAllForm">
+        <input type="submit" value="Submit">
+      </form>
+      <div class="tooltip">
+        <textarea readonly id="createResult" class="createResult" onclick="copyCreate()"></textarea>
+        <span id="tooltiptext" class="tooltiptext">Click to copy!</span>
+        <button type="button" class="cancel" onclick="clearResult()"> Clear</button>
+      </div>
+    </div>
+    <script src="javascript/listener.js"></script>
+  </body>
+</html>
