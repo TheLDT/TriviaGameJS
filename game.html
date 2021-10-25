@@ -67,10 +67,10 @@
           <legend id="legend"> Question Number </legend>
           <p id="ques" class="question"></p>
           <form>
-            <input type="radio" id="ans1" name="ans" onclick="toggle()"><label for="ans1">1</label>
-            <input type="radio" id="ans2" name="ans" onclick="toggle()"><label for="ans2">2</label>
-            <input type="radio" id="ans3" name="ans" onclick="toggle()"><label for="ans3">3</label>
-            <input type="radio" id="ans4" name="ans" onclick="toggle()"><label for="ans4">4</label>
+            <input type="radio" id="ans1" name="ans" onclick="toggle()"><label class="arrow" for="ans1">1</label>
+            <input type="radio" id="ans2" name="ans" onclick="toggle()"><label class="arrow" for="ans2">2</label>
+            <input type="radio" id="ans3" name="ans" onclick="toggle()"><label class="arrow" for="ans3">3</label>
+            <input type="radio" id="ans4" name="ans" onclick="toggle()"><label class="arrow" for="ans4">4</label>
           </form>
           <div class="questionsDetailsDiv">
             <p id="qdCategory" class="qdCategory">Category</p>
@@ -88,6 +88,7 @@
         </div>
       </fieldset>
     </div>
+    <script src="javascript/sortOptions.js"></script>
     <script src="javascript/listener.js"></script>
   </body>
 </html>

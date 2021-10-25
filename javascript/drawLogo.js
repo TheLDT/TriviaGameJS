@@ -6,7 +6,7 @@ document.write('\
   <svg id="logoSVG" width="150" height="150" viewbox="0 0 250 250">\
     <use xlink:href="#logo"></use>\
   </svg>\
-  <h2>Trivia Game</h2>\
+  <h2>♣️ Trivia Game ♠️</h2>\
 </div>\
 <svg class="svgToHide" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink" >\
   <defs>\
