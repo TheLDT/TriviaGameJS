@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Sofia');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   --big-size: 30px;
   --correct-color: rgb(111, 241, 116);
@@ -9,49 +14,61 @@
 
 body {
   background-color: rgb(238, 222, 191);
-  --main-color: #91eef9;
+  color: black;
+
+  --main-color: rgb(249, 230, 145);
+  --background-color-2: white;
   --hover-color: rgb(233, 191, 226);
   --border-color: rgb(0, 15, 113);
   --button-color: rgb(181, 183, 210);
   --text-color: black;
-  color: black;
+  --svg-color: rgb(248, 254, 143);
 }
 
 body.dark-theme {
-  background-color: rgb(56, 52, 59);
-  --main-color: rgb(16, 68, 55);
-  --hover-color: rgb(233, 191, 226);
-  --border-color: rgb(235, 244, 168);
+  background-color: rgb(25, 29, 28);
+  color: white;
+
+  --main-color: rgb(56, 52, 59);
+  --background-color-2: black;
+  --hover-color: rgb(63, 64, 56);
+  --border-color: rgb(64, 66, 14);
   --button-color: rgb(73, 82, 84);
   --text-color: white;
-  color: white;
+  --svg-color: rgb(73, 82, 84);
 }
 
 @media (prefers-color-scheme: dark) {
-  /* defaults to dark theme */
-    body {
-      background-color: rgb(56, 52, 59);
 
-      --main-color: rgb(16, 68, 55);
-      --background-color-2: black;
-      --hover-color: rgb(63, 64, 56);
-      --border-color: rgb(248, 254, 143);
-      --button-color: rgb(73, 82, 84);
-      --text-color: white;
-      color: white;
-    }
-    /* Override dark mode with light mode styles if the user decides to swap */
-    body.light-theme {
-      background-color: rgb(238, 222, 191);
-      --main-color: #91eef9;
-      --background-color-2: white;
-      --hover-color: rgb(233, 191, 226);
-      --border-color: rgb(0, 15, 113);
-      --button-color: rgb(181, 183, 210);
-      --text-color: black;
-      color: black;
-    }
+  /* defaults to dark theme */
+  body {
+    background-color: rgb(25, 29, 28);
+    color: white;
+
+    --main-color: rgb(56, 52, 59);
+    --background-color-2: black;
+    --hover-color: rgb(63, 64, 56);
+    --border-color: rgb(64, 66, 14);
+    --button-color: rgb(73, 82, 84);
+    --text-color: white;
+    --svg-color: rgb(73, 82, 84);
   }
+
+  /* Override dark mode with light mode styles if the user decides to swap */
+  body.light-theme {
+    background-color: rgb(238, 222, 191);
+    color: black;
+
+    --main-color: rgb(249, 230, 145);
+    --background-color-2: white;
+    --hover-color: rgb(233, 191, 226);
+    --border-color: rgb(0, 15, 113);
+    --button-color: rgb(181, 183, 210);
+    --text-color: black;
+    --svg-color: rgb(248, 254, 143);
+  }
+}
+
 /* Title Section */
 
 .title {
@@ -59,21 +76,23 @@ body.dark-theme {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .title h2 {
-  font-size: 50px;
+  font-size: 2.5rem;
   text-align: center;
   margin-left: 10px;
+  user-select: none;
 }
 
 .toggle-theme {
   position: absolute;
 }
 
-.toggle-theme button{
-  border-radius: 10px;
-  font-size: 10px;
+.toggle-theme .small-button {
+  border-radius: 1rem;
+  font-size: 2vw;
   cursor: pointer;
   color: var(--text-color);
   background-color: var(--button-color);
@@ -81,24 +100,24 @@ body.dark-theme {
 
 /* Buttons section */
 
-.buttons {
-  height: 50px;
+.main-menu {
   display: grid;
   align-items: center;
   justify-content: center;
   grid-gap: 5px;
 }
 
-.buttons button {
+.main-menu button {
   border-radius: 10px;
   font-size: 20px;
   cursor: pointer;
   color: var(--text-color);
   background-color: var(--button-color);
+  padding: 0.5rem 1rem;
 }
 
-.buttons button:hover {
-  box-shadow: 0px 0px 0px 2px rgb(0, 15, 113);
+.main-menu button:hover {
+  box-shadow: 0px 0px 0px .1rem rgb(0, 15, 113);
 }
 
 .svgToHide {
@@ -107,8 +126,8 @@ body.dark-theme {
 }
 
 a.button {
-    margin: 20px;
-    font-size: 20px;
+  margin: 20px;
+  font-size: 20px;
 }
 
 .arrow {
@@ -117,58 +136,59 @@ a.button {
 }
 
 .arrow::before {
-    position: absolute;
-    left:-13%;
-    display: inline-block;
-    grid-row: 1;
-    grid-column: 1;
-    padding-right: 8px;
-    color: transparent;
-    content: "🢂";
-    -webkit-transition: transform 0.3s ease-out;
-    -moz-transition: transform 0.3s ease-out;
-    -ms-transition: transform 0.3s ease-out;
-    -o-transition: transform 0.3s ease-out;
-    transition: transform 0.3s ease-out;
+  position: absolute;
+  left: -13%;
+  display: inline-block;
+  grid-row: 1;
+  grid-column: 1;
+  padding-right: 8px;
+  color: transparent;
+  content: "🢂";
+  -webkit-transition: transform 0.3s ease-out;
+  -moz-transition: transform 0.3s ease-out;
+  -ms-transition: transform 0.3s ease-out;
+  -o-transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
 }
 
 .arrow::after {
-    position: absolute;
-    left: 105%;
-    display: inline-block;
-    grid-row: 1;
-    grid-column: 3;
-    padding-left: 8px;
-    content: "🢀";
-    color: transparent;
-    -webkit-transition: transform 0.3s ease-out;
-    -moz-transition: transform 0.3s ease-out;
-    -ms-transition: transform 0.3s ease-out;
-    -o-transition: transform 0.3s ease-out;
-    transition: transform 0.3s ease-out;
+  position: absolute;
+  left: 104%;
+  display: inline-block;
+  grid-row: 1;
+  grid-column: 3;
+  padding-left: 8px;
+  content: "🢀";
+  color: transparent;
+  -webkit-transition: transform 0.3s ease-out;
+  -moz-transition: transform 0.3s ease-out;
+  -ms-transition: transform 0.3s ease-out;
+  -o-transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
 }
 
 .arrow:hover::before {
-    color:var(--text-color);
-    -webkit-transform: translateX(4px);
-    -moz-transform: translateX(4px);
-    -ms-transform: translateX(4px);
-    -o-transform: translateX(4px);
-    transform: translateX(4px);
+  color: var(--text-color);
+  -webkit-transform: translateX(4px);
+  -moz-transform: translateX(4px);
+  -ms-transform: translateX(4px);
+  -o-transform: translateX(4px);
+  transform: translateX(4px);
 }
 
 .arrow:hover::after {
-    color:var(--text-color);
-    -webkit-transform: translateX(-4px);
-    -moz-transform: translateX(-4px);
-    -ms-transform: translateX(-4px);
-    -o-transform: translateX(-4px);
-    transform: translateX(-4px);
+  color: var(--text-color);
+  -webkit-transform: translateX(-4px);
+  -moz-transform: translateX(-4px);
+  -ms-transform: translateX(-4px);
+  -o-transform: translateX(-4px);
+  transform: translateX(-4px);
 }
 
 /* Quote Section */
 
 .quoteDiv {
+  display: grid;
   padding: 30px;
   min-width: 300px;
   max-width: 300px;
@@ -201,7 +221,12 @@ a.button {
   margin: 2px;
 }
 
-.setup input[type="text"]{
+.setup input,
+.setup select {
+  padding-inline: 0.5rem;
+}
+
+.setup input[type="text"] {
   font-size: 20px;
   border-radius: 10px;
   margin-bottom: 5px;
@@ -212,23 +237,25 @@ a.button {
   border-radius: 10px;
   font-size: 20px;
   margin-bottom: 5px;
-  outline: solid 2px var(--border-color);;
+  outline: solid 2px var(--border-color);
+  ;
 }
 
-.setup input[type="submit"]{
+.setup input[type="submit"] {
   font-size: var(--big-size);
   margin: 15px;
-  outline: solid 2px var(--border-color);;
+  outline: solid 2px var(--border-color);
+  ;
   border-radius: 10px;
   background-color: var(--button-color);
   color: var(--text-color);
 }
 
 .setup input[type="submit"]:hover {
-  font-weight: bold;
+
   outline: solid 2px var(--border-color);
   background-color: var(--hover-color);
-  box-shadow: 0px 0px 0px 5px rgb(0, 15, 113);
+  box-shadow: 0px 0px 0px .25rem rgb(0, 15, 113);
   cursor: pointer;
 }
 
@@ -239,49 +266,58 @@ a.button {
   border: 3px solid var(--border-color);
   border-radius: 10px;
   text-align: center;
+  width: 90%;
 }
 
-.fs legend {
-  font-size:20px;
+.fieldset-box legend {
+  font-size: 4rem;
 }
 
-.fs .question {
+.fieldset-box .question {
+  display: grid;
   font-style: italic;
-  font-size: 20px;
+  font-size: 4rem;
   align-content: center;
+  padding: 1rem;
 }
 
-.radio-toolbar input[type="radio"] {
+.game-div {
+  margin-top: 1rem;
+  justify-items: center;
+  row-gap: 1rem;
+}
+
+.game-div .question {
+  font-size: 4rem;
+}
+
+.game-div input[type="radio"] {
   display: none;
 }
 
-.radio-toolbar label {
+.game-div label {
   display: grid;
   justify-content: space-around;
   align-content: center;
   background-color: #ddd;
   color: black;
-  padding: 10px 10px;
-  margin-bottom: 5px;
-  font-size: 16px;
+  padding: 1.4rem 1rem;
+  margin: 0.4ch 0.5rem;
+  font-size: 3.5rem;
   cursor: pointer;
-  max-height: 20px;
+  max-height: minmax(5rem, fit-content);
   user-select: none;
+  transition: background-color ease-in-out 200ms,
+    color ease-in-out 200ms;
+  border-radius: 2rem;
 }
 
-.radio-toolbar label.arrow::before {
-  left: -65%;
-}
-
-.radio-toolbar label.arrow::after {
-  left: 90%;
-}
-
-.radio-toolbar label:hover {
+.game-div label:hover {
   font-weight: bold;
   outline: solid 2px black;
   color: var(--text-color);
   background-color: var(--hover-color);
+
 }
 
 /* .radio-toolbar input[type="radio"]:checked+label {
@@ -289,11 +325,9 @@ a.button {
   background-color: rgb(240, 210, 132);
 } */
 
-.radio-toolbar fieldset {
-  margin-top: 20px;
-}
-
 .questionsDetailsDiv {
+  margin: 1rem 1rem;
+  font-size: 5ch;
   display: grid;
   flex-direction: row;
   grid-template-columns: [qdCategory] 20% [qdEmptySpace] 20% [qdDifficulty] auto;
@@ -302,6 +336,7 @@ a.button {
 .qdDifficulty {
   background-color: var(--main-color);
   text-align: right;
+  user-select: none;
 }
 
 .qdCategory {
@@ -309,22 +344,42 @@ a.button {
   text-align: left;
 }
 
+.endGameDiv {
+  justify-items: center;
+}
+
 .endGameDiv button {
   border-radius: 10px;
-  font-size: 20px;
+  font-size: 1.5rem;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 0.5rem;
   outline: solid 2px black;
-  padding: 7px;
+  padding: 0.2rem;
+  width: 90% !important;
+  transition: box-shadow ease-in-out 200ms,
+    background-color ease-in-out 200ms;
 }
 
 .endGameDiv button:hover {
   border-radius: 10px;
-  font-size: 20px;
-  font-weight: bold;
   cursor: pointer;
-  margin-top: 10px;
+  background-color: rgb(161, 161, 161);
   box-shadow: 0px 0px 0px 4px rgb(0, 15, 113);
+}
+
+.stats ol {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 10fr));
+  grid-gap: 1rem;
+  list-style-position: inside;
+  padding: 10px;
+  justify-items: center;
+}
+
+.stats ol li {
+  width: 90%;
+  margin: 0;
+  padding: 0 !important;
 }
 
 .endGameDiv .endGameAnswer {
@@ -333,11 +388,15 @@ a.button {
   padding: 5px 15px;
   margin-bottom: 5px;
   font-size: 16px;
-  width: 95%;
   white-space: pre-line;
   outline: black solid 2px;
   /* user-select: none; */
 }
+
+.endGameAnswer::after {
+  content: '' !important;
+}
+
 
 .endGameDiv ::marker {
   font-size: 20px;
@@ -353,29 +412,57 @@ a.button {
   cursor: pointer;
 }
 
+.end-game__buttons {
+  margin-bottom: 1rem;
+  height: 6rem;
+}
+
 .endGameBacktoMenu {
+  width: 90%;
   background-color: var(--wrong-color);
 }
 
 .endGamePlayAgain {
+  width: 90%;
   background-color: var(--correct-color);
 }
 
+.answer {
+  font-weight: bold;
+  color: var(--text-color);
+  font-size: 2rem;
+  padding: 0.5rem 0;
+  -webkit-text-stroke-width: .05rem;
+  -webkit-text-stroke-color: var(--background-color-2);
+}
+
+.answer::after {
+  -webkit-text-stroke-width: 0;
+}
+
+
 .correct-answer {
   background-color: var(--correct-color) !important;
-  font-weight: bold;
-  color: black;
+}
+
+.correct-answer::after {
+  font-weight: normal;
+  content: "🤩";
 }
 
 .wrong-answer {
   background-color: var(--wrong-color) !important;
-  font-weight: bold;
-  color: black;
+}
+
+.wrong-answer::after {
+  font-weight: normal;
+  content: "😥";
 }
 
 .default-answer {
   background-color: var(--main-color);
   font-weight: bold;
+  font-size: 3rem;
   color: black;
 }
 
@@ -385,10 +472,10 @@ a.button {
   display: flex;
   flex-direction: column;
   margin-right: 10%;
-  margin-left:10%;
+  margin-left: 10%;
 }
 
-.createForm label{
+.createForm label {
   font-size: 20px;
   align-self: center;
   font-weight: bold;
@@ -396,7 +483,7 @@ a.button {
 
 }
 
-.createForm input[type="text"]{
+.createForm input[type="text"] {
   font-size: 20px;
   margin-bottom: 5px;
   outline: solid 2px var(--border-color);
@@ -404,7 +491,7 @@ a.button {
   color: var(--text-color);
 }
 
-.createForm input[type="submit"]{
+.createForm input[type="submit"] {
   font-size: var(--big-size);
   margin: 15px;
   outline: solid 2px var(--border-color);
@@ -442,7 +529,7 @@ label.seperator {
 
 .cancel {
   border-radius: 10px;
-  font-size: 20px;
+  font-size: 1.5rem;
   padding: 10px;
   background: var(--wrong-color);
   display: flex;
@@ -474,4 +561,23 @@ label.seperator {
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+/* PHONE CSS */
+@media only screen and (max-width: 1200px) {
+
+  .game-div .question,
+  .fieldset-box .question,
+  .game-div label {
+    font-size: 2rem;
+    padding: 0.5rem;
+  }
+
+  .questionsDetailsDiv {
+    font-size: 2rem;
+  }
+
+  .fieldset-box legend {
+    font-size: 2.5rem;
+  }
 }

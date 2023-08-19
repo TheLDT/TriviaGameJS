@@ -7,7 +7,8 @@ function getQuote() {
 
   const d = new Date();
   let today = d.getUTCFullYear() + "/" + (d.getUTCMonth()+1) + "/" +d.getUTCDate();
-  if(window.localStorage.getItem("quoteDay") === today){
+  if(window.localStorage.getItem("quoteDay") === today
+  && !window.localStorage.getItem("quote").startsWith("Wikiquote:Quote of the day")){
     console.log("Loading storred quote");
     document.getElementById("quoteDiv").innerHTML = window.localStorage.getItem("quote");
   } else {
@@ -19,7 +20,6 @@ function getQuote() {
 }
 
 function getQuotePortion(text, title){
-  //console.log(text);
   let tmp = document.createElement("DIV");
   tmp.innerHTML = text;
   let lis = tmp.getElementsByTagName("li");
@@ -59,6 +59,7 @@ function loadJSON(callback) {
 function createQuote(json){
   let tmp = document.createElement("DIV");
   tmp.innerHTML = json.text['*'];
+  console.log(json.text['*']);
   let tmpTxt =  tmp.innerText.replace("~","<br><p class=\"quoter\">");
   tmpTxt = tmpTxt.replace("~","</p>");
   tmpTxt = tmpTxt.replace("\n","");

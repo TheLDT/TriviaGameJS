@@ -1,12 +1,11 @@
 document.write('\
 <div class="toggle-theme">\
-<button id="themeToggle" type="button" name="button" class="small-button" class onclick="themeToggle()"> Toggle Mode</button>\
 </div>\
-<div class="title">\
-  <svg id="logoSVG" width="150" height="150" viewbox="0 0 250 250">\
+<div class="title" >\
+  <svg id="logoSVG" width="150" height="150" viewbox="0 0 250 250" onclick="themeToggle()">\
     <use xlink:href="#logo"></use>\
   </svg>\
-  <h2>♣️ Trivia Game ♠️</h2>\
+  <h2 class="logo-text">♣️ Trivia Game ♠️</h2>\
 </div>\
 <svg class="svgToHide" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink" >\
   <defs>\
