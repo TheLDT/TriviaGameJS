@@ -26,7 +26,6 @@ function createApiCall(data, playAgain) {
   }
 
   apicall = `https://opentdb.com/api.php?amount=${total}&category=${category}&difficulty=${difficulty}&type=multiple`;
-  console.log(apicall);
   toggle();
 }
 
