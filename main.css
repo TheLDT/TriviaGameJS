@@ -307,7 +307,7 @@ a.button {
   border-radius: 2rem;
 }
 
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   .game-div label:hover {
     font-weight: bold;
     outline: solid 2px black;
