@@ -307,11 +307,13 @@ a.button {
   border-radius: 2rem;
 }
 
-.game-div label:hover {
-  font-weight: bold;
-  outline: solid 2px black;
-  color: var(--text-color);
-  background-color: var(--hover-color);
+@media (hover: hover) {
+  .game-div label:hover {
+    font-weight: bold;
+    outline: solid 2px black;
+    color: var(--text-color);
+    background-color: var(--hover-color);
+  }
 }
 
 /* .radio-toolbar input[type="radio"]:checked+label {
@@ -576,14 +578,5 @@ label.seperator {
     color: var(--text-color);
     font-size: 2rem;
     padding: 0.5rem 0;
-  }
-
-  .game-div label:active,
-  .game-div label:checked,
-  .game-div label:enabled {
-    font-weight: normal;
-    color: var(--text-color);
-    background-color: #ddd;
-    outline: none;
   }
 }
