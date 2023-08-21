@@ -169,13 +169,13 @@ function check() {
     total_right += 1;
     object.correct = true;
     stats[stats.length] = object;
-    return "You are correct";
+    return "Correct";
   } else {
     result.classList.add("wrong-answer");
     result.classList.remove("correct-answer");
     object.correct = false;
     stats[stats.length] = object;
-    return "You are wrong";
+    return "Wrong";
   }
 }
 

@@ -7,7 +7,9 @@
 }
 
 :root {
-  --big-size: 30px;
+  --giant-size: 3rem;
+  --big-size: 2rem;
+  --medium-size: 1.3rem;
   --correct-color: rgb(111, 241, 116);
   --wrong-color: rgb(240, 85, 113);
 }
@@ -76,6 +78,7 @@ body.dark-theme {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-top: 1rem;
 }
 
 .title h2 {
@@ -85,37 +88,29 @@ body.dark-theme {
   user-select: none;
 }
 
-.toggle-theme {
-  position: absolute;
-}
-
-.toggle-theme .small-button {
-  border-radius: 1rem;
-  font-size: 2vw;
-  cursor: pointer;
-  color: var(--text-color);
-  background-color: var(--button-color);
-}
-
 /* Buttons section */
 
 .main-menu {
   display: grid;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
-  grid-gap: 5px;
+  grid-gap: .2rem;
 }
 
-.main-menu button {
+.menu-button {
   border-radius: 10px;
-  font-size: 20px;
+  font-size: var(--medium-size);
   cursor: pointer;
   color: var(--text-color);
   background-color: var(--button-color);
-  padding: 0.5rem 1rem;
+  padding-block: 0.5rem;
+  min-width: 13rem;
+
+  border-radius: 10px;
+  border: .1rem solid var(--border-color);
 }
 
-.main-menu button:hover {
+.menu-button:hover {
   box-shadow: 0px 0px 0px .1rem rgb(0, 15, 113);
 }
 
@@ -131,16 +126,16 @@ a.button {
 
 .arrow {
   position: relative;
-  font-size: 20px;
+  font-size: var(--medium-size);
 }
 
 .arrow::before {
   position: absolute;
-  left: -13%;
+  left: -2.5rem;
   display: inline-block;
   grid-row: 1;
   grid-column: 1;
-  padding-right: 8px;
+  padding-right: 1rem;
   color: transparent;
   content: "🢂";
   -webkit-transition: transform 0.3s ease-out;
@@ -152,11 +147,11 @@ a.button {
 
 .arrow::after {
   position: absolute;
-  left: 104%;
+  left: 100%;
   display: inline-block;
   grid-row: 1;
   grid-column: 3;
-  padding-left: 8px;
+  padding-left: 1rem;
   content: "🢀";
   color: transparent;
   -webkit-transition: transform 0.3s ease-out;
@@ -188,20 +183,21 @@ a.button {
 
 .quoteDiv {
   display: grid;
-  padding: 30px;
-  min-width: 300px;
-  max-width: 300px;
-  margin-top: 10px;
+  padding: 1rem 3rem;
+  min-width: 10rem;
+  max-width: 40rem;
   background-color: var(--button-color);
   border-radius: 10px;
-  border-style: solid;
+  border: .1rem solid var(--border-color);
 }
+
 
 .quoter {
   display: grid;
   justify-content: center;
-  font-size: 20px;
+  font-size: var(--big-size);
   font-weight: bolder;
+  margin-top: 1rem;
 }
 
 /* Setup Section */
@@ -209,15 +205,21 @@ a.button {
 .setup {
   display: flex;
   flex-direction: column;
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-top: .5rem;
+  margin-inline: auto;
+  grid-gap: .5rem;
+}
+
+.setup>* {
+  min-width: 20rem;
+  max-width: 50rem;
 }
 
 .setup label {
-  font-size: 20px;
+  font-size: var(--medium-size);
   align-self: center;
   font-weight: bold;
-  margin: 2px;
+  /* margin: .1rem; */
 }
 
 .setup input,
@@ -226,25 +228,21 @@ a.button {
 }
 
 .setup input[type="text"] {
-  font-size: 20px;
+  font-size: var(--medium-size);
   border-radius: 10px;
-  margin-bottom: 5px;
   outline: solid 1px var(--border-color);
 }
 
 .setup select {
   border-radius: 10px;
-  font-size: 20px;
-  margin-bottom: 5px;
+  font-size: var(--medium-size);
   outline: solid 2px var(--border-color);
-  ;
 }
 
 .setup input[type="submit"] {
+  margin-top: .5rem;
   font-size: var(--big-size);
-  margin: 15px;
-  outline: solid 2px var(--border-color);
-  ;
+  outline: solid .2rem var(--border-color);
   border-radius: 10px;
   background-color: var(--button-color);
   color: var(--text-color);
@@ -258,6 +256,42 @@ a.button {
   cursor: pointer;
 }
 
+.button-group {
+  display: grid;
+  margin-inline: auto;
+  grid-gap: 0.5rem;
+}
+
+.button-group .menu-button {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.button-group .answer {
+  grid-column: 2;
+  grid-row: 1/3;
+}
+
+.cancel {
+  grid-column: 1;
+  grid-row: 1/3;
+
+  padding-inline: 1rem;
+  border-radius: 10px;
+  font-size: var(--medium-size);
+  background: var(--wrong-color);
+  border: .1rem solid var(--border-color);
+  text-align: center;
+}
+
+.cancel:hover {
+  border-radius: 10px;
+  outline: solid 2px var(--border-color);
+  background-color: var(--correct-color);
+  box-shadow: 0px 0px 0px 1px rgb(0, 15, 113);
+  cursor: pointer;
+}
+
 /* Game Section */
 
 .fs {
@@ -268,14 +302,18 @@ a.button {
   width: 90%;
 }
 
+.fieldset-box {
+  margin-bottom: 2rem;
+}
+
 .fieldset-box legend {
-  font-size: 3rem;
+  font-size: var(--big-size);
 }
 
 .question {
   display: grid;
   font-style: italic;
-  font-size: 3rem;
+  font-size: var(--big-size);
   align-content: center;
   padding: 0.5rem;
 }
@@ -298,7 +336,7 @@ a.button {
   color: black;
   padding: 0.5rem;
   margin: 0.4ch 0.5rem;
-  font-size: 3.5rem;
+  font-size: var(--big-size);
   cursor: pointer;
   max-height: minmax(5rem, fit-content);
   user-select: none;
@@ -309,7 +347,6 @@ a.button {
 
 @media (hover: hover) and (pointer: fine) {
   .game-div label:hover {
-    font-weight: bold;
     outline: solid 2px black;
     color: var(--text-color);
     background-color: var(--hover-color);
@@ -334,12 +371,13 @@ a.button {
   text-align: right;
   user-select: none;
   align-self: center;
-  font-size: 4rem;
+  font-size: var(--giant-size);
 }
 
 .qdCategory {
   background-color: var(--main-color);
   text-align: left;
+  align-self: center;
 }
 
 .endGameDiv {
@@ -454,7 +492,7 @@ a.button {
 .default-answer {
   background-color: var(--main-color);
   font-weight: bold;
-  font-size: 3rem;
+  font-size: var(--medium-size);
   color: black;
 }
 
@@ -519,24 +557,7 @@ label.seperator {
   background-color: var(--background-color-2);
 }
 
-.cancel {
-  border-radius: 10px;
-  font-size: 1.5rem;
-  padding: 10px;
-  background: var(--wrong-color);
-  display: flex;
-  align-self: center;
-  margin-left: auto;
-  margin-right: auto;
-}
 
-.cancel:hover {
-  border-radius: 10px;
-  outline: solid 2px var(--border-color);
-  background-color: var(--correct-color);
-  box-shadow: 0px 0px 0px 1px rgb(0, 15, 113);
-  cursor: pointer;
-}
 
 .tooltip .tooltiptext {
   visibility: hidden;
@@ -578,5 +599,15 @@ label.seperator {
     color: var(--text-color);
     font-size: 2rem;
     padding: 0.5rem 0;
+  }
+
+  .main-menu>* {
+    margin-inline: 2rem;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .main-menu>* {
+    margin-inline: 3rem;
   }
 }
